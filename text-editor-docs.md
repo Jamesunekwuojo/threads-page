@@ -126,4 +126,4 @@ import DOMPurify from 'dompurify';
 - Add a toolbar if needed
 - Sanitize on display with `DOMPurify` when rendering saved content
 
-This setup keeps the editor consistent, flexible, and easy to drop into any page or component. If you want, I can provide a tiny “StarterEditor” component you can import anywhere with common defaults.
+
