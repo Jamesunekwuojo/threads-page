@@ -1,0 +1,85 @@
+# ControlledTiptap vs Tiptap-Editor: Quick Summary
+
+## `ControlledTiptap.tsx` (The Component)
+- **What it is**: A ready-to-use React component
+- **Use it when**: You just need a text editor in the app
+- **Example**:
+  ```tsx
+  <ControlledTiptap 
+    content={text} 
+    onUpdateHTML={setText}
+    features={{ bold: true, italic: true }}
+  />
+  ```
+
+## [tiptap-editor.ts](cci:7://file:///home/godswilljames/Documents/Github/namusoft/ratel/ts-packages/web/src/components/text-editor/tiptap-editor.ts:0:0-0:0) (The Hook)
+- **What it is**: The underlying engine that powers the editor that is the main hook.
+- **Use it when**: You need to build a custom editor component
+- **Example**:
+  ```tsx
+  const editor = useTiptapEditor({
+    content: text,
+    onUpdateHTML: setText,
+    features: { bold: true }
+  });
+  return <EditorContent editor={editor} />;
+  ```
+
+### Simple Rule:
+- **For most cases**: Use `ControlledTiptap`
+- **For custom UIs**: Use [useTiptapEditor](cci:1://file:///home/godswilljames/Documents/Github/namusoft/ratel/ts-packages/web/src/components/text-editor/tiptap-editor.ts:35:0-179:2) directly
+
+
+
+
+Not exactly. The main difference isn't just about styling. Let me clarify:
+
+### Key Differences:
+
+1. **`ControlledTiptap` (The Component)**:
+   - A complete, ready-to-use React component
+   - Handles both rendering and editor logic
+   - Has built-in loading state
+   - Provides a clean, controlled component API
+   - Includes some basic default styling (like the `min-h-[100px]` you see)
+
+2. **[useTiptapEditor](cci:1://file:///home/godswilljames/Documents/Github/namusoft/ratel/ts-packages/web/src/components/text-editor/tiptap-editor.ts:35:0-179:2) (The Hook)**:
+   - Just returns the raw editor instance
+   - No UI components
+   - No built-in loading states
+   - No default styling
+   - Gives you full control to build custom UIs
+
+### Styling is Just One Part
+
+Yes, `ControlledTiptap` includes some basic styling, but its real power is that it's a complete, self-contained editor component. The hook is just the "brains" without any UI.
+
+### Example of the Difference:
+
+```tsx
+// Using the component (simpler)
+<ControlledTiptap 
+  content={text} 
+  onUpdateHTML={setText}
+  features={{ bold: true }}
+/>
+
+// Using the hook directly (more work)
+function CustomEditor() {
+  const editor = useTiptapEditor({
+    content: text,
+    onUpdateHTML: setText,
+    features: { bold: true }
+  });
+  
+  if (!editor) return <div>Loading...</div>;
+  
+  return (
+    <div className="my-custom-styles">
+      <EditorContent editor={editor} />
+    </div>
+  );
+}
+```
+
+So while styling is one difference, the main distinction is that one is a complete solution (component) while the other is a building block (hook).
