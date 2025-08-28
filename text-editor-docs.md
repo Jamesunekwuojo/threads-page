@@ -2,7 +2,7 @@
 
 We now have a simple, flexible setup that you can drop into any component:
 
-- Core hook: [useTiptapEditor()](cci:1://file:///home/godswilljames/Documents/Github/namusoft/ratel/ts-packages/web/src/components/text-editor/tiptap-editor.ts:35:0-168:2) in [components/text-editor/useTiptapEditor.ts](cci:7://file:///home/godswilljames/Documents/Github/namusoft/ratel/ts-packages/web/src/components/text-editor/useTiptapEditor.ts:0:0-0:0)
+- Core hook: [useTiptapEditor()](cci:1://file:///home/godswilljames/Documents/Github/namusoft/ratel/ts-packages/web/src/components/text-editor/tiptap-editor.ts:35:0-168:2) in [components/text-editor/tiptap-editor.ts](cci:7://file:///home/godswilljames/Documents/Github/namusoft/ratel/ts-packages/web/src/components/text-editor/useTiptapEditor.ts:0:0-0:0)
 - Ready-to-use wrapper: `ControlledTiptap` in [components/text-editor/controlled-tiptap.tsx](cci:7://file:///home/godswilljames/Documents/Github/namusoft/ratel/ts-packages/web/src/components/text-editor/controlled-tiptap.tsx:0:0-0:0)
 - Toolbars you can plug in:
   - Repost toolbar: [components/toolbar/editor-toolbar-repost.tsx](cci:7://file:///home/godswilljames/Documents/Github/namusoft/ratel/ts-packages/web/src/components/toolbar/editor-toolbar-repost.tsx:0:0-0:0)
